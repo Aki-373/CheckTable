@@ -35,5 +35,6 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
         let cellSize : CGFloat = self.view.bounds.width / 3 - horizontalSpace
         return CGSize(width: cellSize, height: cellSize)
     }
-
+//
+    
 }
