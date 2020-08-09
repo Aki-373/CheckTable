@@ -6,6 +6,7 @@
 //  Copyright © 2020 Akihiro Koda. All rights reserved.
 //  YOU LOSE!
 //  じゅげむじゅげむ
+//  真鯛はまだいい
 
 import UIKit
 
