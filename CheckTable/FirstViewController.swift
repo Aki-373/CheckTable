@@ -25,7 +25,10 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 5
         collectionView.collectionViewLayout = layout
-        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.onLongPressAction(_:)))
+        longPressRecognizer.allowableMovement = 10
+        longPressRecognizer.minimumPressDuration = 0.5
+        self.collectionView.addGestureRecognizer(longPressRecognizer)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -67,8 +70,12 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
               cell.backgroundColor = .darkGray
           }
           
-          print(cell.color)
     }
     
+    @objc func onLongPressAction(_ sender: UILongPressGestureRecognizer) {
+        //let point: CGPoint = sender.location(in: self.collectionView)
+        //let indexPath = self.collectionView.indexPathForItem(at: point)
+        performSegue(withIdentifier: "toAnswer",sender: nil)
+    }
     
 }

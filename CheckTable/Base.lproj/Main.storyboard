@@ -77,28 +77,31 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Checklist" image="first" id="acW-dT-cKf"/>
+                    <navigationItem key="navigationItem" id="EGu-vf-lzB"/>
                     <connections>
                         <outlet property="collectionView" destination="ZZT-9W-Q1k" id="8DZ-lV-53j"/>
+                        <segue destination="Wc8-eQ-gx8" kind="show" identifier="toAnswer" id="KRL-vr-bsg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
         </scene>
-        <!--View Controller-->
+        <!--Answer View Controller-->
         <scene sceneID="oZ2-pd-0V7">
             <objects>
-                <viewController id="Wc8-eQ-gx8" sceneMemberID="viewController">
+                <viewController id="Wc8-eQ-gx8" customClass="AnswerViewController" customModule="CheckTable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pRk-eY-Rn3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Csw-rq-Dvd"/>
                     </view>
+                    <navigationItem key="navigationItem" id="x16-So-jDb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDp-KW-VM2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1645" y="-320"/>
+            <point key="canvasLocation" x="1643" y="-320"/>
         </scene>
         <!--Activity-->
         <scene sceneID="AmE-5m-kZC">

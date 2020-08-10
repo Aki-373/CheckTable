@@ -16,6 +16,7 @@
 		ACD91CDE24DBF45B00DC02BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD91CDC24DBF45B00DC02BA /* LaunchScreen.storyboard */; };
 		ACD91CE624DBF91A00DC02BA /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD91CE524DBF91A00DC02BA /* ActivityViewController.swift */; };
 		ACD91CE824DFD0C200DC02BA /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD91CE724DFD0C200DC02BA /* CollectionViewCell.swift */; };
+		ACD91CEC24E174E300DC02BA /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD91CEB24E174E300DC02BA /* AnswerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		ACD91CDF24DBF45B00DC02BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACD91CE524DBF91A00DC02BA /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		ACD91CE724DFD0C200DC02BA /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		ACD91CEB24E174E300DC02BA /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				ACD91CDC24DBF45B00DC02BA /* LaunchScreen.storyboard */,
 				ACD91CDF24DBF45B00DC02BA /* Info.plist */,
 				ACD91CE724DFD0C200DC02BA /* CollectionViewCell.swift */,
+				ACD91CEB24E174E300DC02BA /* AnswerViewController.swift */,
 			);
 			path = CheckTable;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACD91CD624DBF45700DC02BA /* SecondViewController.swift in Sources */,
+				ACD91CEC24E174E300DC02BA /* AnswerViewController.swift in Sources */,
 				ACD91CD424DBF45700DC02BA /* FirstViewController.swift in Sources */,
 				ACD91CE824DFD0C200DC02BA /* CollectionViewCell.swift in Sources */,
 				ACD91CD024DBF45700DC02BA /* AppDelegate.swift in Sources */,
