@@ -80,7 +80,7 @@
                     <navigationItem key="navigationItem" id="EGu-vf-lzB"/>
                     <connections>
                         <outlet property="collectionView" destination="ZZT-9W-Q1k" id="8DZ-lV-53j"/>
-                        <segue destination="Wc8-eQ-gx8" kind="show" identifier="toAnswer" id="KRL-vr-bsg"/>
+                        <segue destination="Wc8-eQ-gx8" kind="presentation" identifier="toAnswer" id="KRL-vr-bsg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
