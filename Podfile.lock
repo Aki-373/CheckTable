@@ -1,6 +1,25 @@
 PODS:
-  - Firebase/Analytics (6.29.0):
-    - Firebase/Core
+  - AFNetworking (2.7.0):
+    - AFNetworking/NSURLConnection (= 2.7.0)
+    - AFNetworking/NSURLSession (= 2.7.0)
+    - AFNetworking/Reachability (= 2.7.0)
+    - AFNetworking/Security (= 2.7.0)
+    - AFNetworking/Serialization (= 2.7.0)
+    - AFNetworking/UIKit (= 2.7.0)
+  - AFNetworking/NSURLConnection (2.7.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.7.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.7.0)
+  - AFNetworking/Security (2.7.0)
+  - AFNetworking/Serialization (2.7.0)
+  - AFNetworking/UIKit (2.7.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - Firebase/Core (6.29.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 6.7.0)
@@ -29,6 +48,7 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/UserDefaults (~> 6.7)
     - PromisesObjC (~> 1.2)
+  - FLKAutoLayout (0.2.1)
   - GoogleAppMeasurement (6.7.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/MethodSwizzler (~> 6.7)
@@ -61,37 +81,50 @@ PODS:
     - nanopb/encode (= 1.30905.0)
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
+  - ORStackView (3.0.1):
+    - FLKAutoLayout (~> 0.2)
   - PromisesObjC (1.2.9)
+  - SwiftyJSON (2.4.0)
 
 DEPENDENCIES:
-  - Firebase/Analytics
+  - AFNetworking (~> 2.6)
   - Firebase/Core
+  - ORStackView (~> 3.0)
+  - SwiftyJSON (~> 2.3)
 
 SPEC REPOS:
   trunk:
+    - AFNetworking
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseInstallations
+    - FLKAutoLayout
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
     - nanopb
+    - ORStackView
     - PromisesObjC
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  AFNetworking: 8dd5f9b9691e09186393069a12cc3b5ed7c8b511
   Firebase: 57957c8d6eb3d8b80a560b1dc58be24724b89ff2
   FirebaseAnalytics: aa522dce9fd93002ba1554467d23ce7092323000
   FirebaseCore: 7930a1946517d94256d857f97371ed993b55f7bd
   FirebaseCoreDiagnostics: 7535fe695737f8c5b350584292a70b7f8ff0357b
   FirebaseInstallations: 3c520c951305cbf9ca54eb891ff9e6d1fd384881
+  FLKAutoLayout: 9db6b30c2008d230da608e62c607b11c23b942e6
   GoogleAppMeasurement: 345d365fd105e6682bf5084783a5352a3db26820
   GoogleDataTransport: af0c79193dc59acd37630b4833d0dc6912ae6bd5
   GoogleUtilities: e121a3867449ce16b0e35ddf1797ea7a389ffdf2
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
+  ORStackView: a1bb52748cd0ae29891c140baf22ff8972fb363c
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
+  SwiftyJSON: 96918c1bf505efa50c4f72957018dd3452090c9c
 
-PODFILE CHECKSUM: a4dbb7dea9a9f9d0f53ed37200fa2498196b780b
+PODFILE CHECKSUM: 231e32509da33ea0811a3c929cd607a871a7bd09
 
 COCOAPODS: 1.9.3
