@@ -45,6 +45,30 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
         let cellSize = 35
         return CGSize(width: cellSize, height: cellSize)
     }
-//
+        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+          if(cell.color == 3){
+              cell.color = 0
+          }else{
+              cell.color += 1
+          }
+          
+          switch cell.color {
+          case 0:
+            cell.backgroundColor = .lightGray
+          case 1:
+              cell.backgroundColor = .red
+          case 2:
+              cell.backgroundColor = .blue
+          case 3:
+              cell.backgroundColor = .green
+          default:
+              cell.backgroundColor = .darkGray
+          }
+          
+          print(cell.color)
+    }
+    
     
 }
