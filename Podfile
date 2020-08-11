@@ -6,12 +6,6 @@ target 'CheckTable' do
   use_frameworks!
 
   # Pods for CheckTable
-  pod 'AFNetworking', '~> 2.6'
-  pod 'ORStackView', '~> 3.0'
-  pod 'SwiftyJSON', '~> 2.3'
-  # add the Firebase pod for Google Analytics
-  pod 'Firebase/Core'
-  # add pods for any other desired Firebase products
-  # https://firebase.google.com/docs/ios/setup#available-pods
+  pod 'Firebase/Analytics'
 
 end
