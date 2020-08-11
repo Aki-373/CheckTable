@@ -19,9 +19,9 @@ class AccountViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
 
-        override func viewDidLoad() {
+    override func viewDidLoad() {
             super.viewDidLoad()
-            auth = Auth.auth() // 追加
+            auth = Auth.auth()
             emailTextField.delegate = self
             passwordTextField.delegate = self
         }
@@ -33,7 +33,7 @@ class AccountViewController: UIViewController {
             auth.currentUser?.reload(completion: { error in
                 if error == nil {
                     if self.auth.currentUser?.isEmailVerified == true {
-                        self.performSegue(withIdentifier: "Timeline", sender: self.auth.currentUser!)
+                        self.performSegue(withIdentifier: "TimeLine", sender: self.auth.currentUser!)
                     } else if self.auth.currentUser?.isEmailVerified == false {
                         let alert = UIAlertController(title: "確認用メールを送信しているので確認をお願いします。", message: "まだメール認証が完了していません。", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -66,7 +66,7 @@ class AccountViewController: UIViewController {
                 }
             }
         }
-}
+    }
 
     // デリゲートメソッドは可読性のためextensionで分けて記述します。
     extension AccountViewController: UITextFieldDelegate {

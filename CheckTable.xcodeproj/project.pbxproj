@@ -11,6 +11,7 @@
 		2CF9FAB424E26D96004473B8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9FAB324E26D96004473B8 /* Post.swift */; };
 		2CF9FAB624E26DBD004473B8 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9FAB524E26DBD004473B8 /* AppUser.swift */; };
 		2CF9FAB824E26E01004473B8 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9FAB724E26E01004473B8 /* AccountViewController.swift */; };
+		2CF9FABA24E28C76004473B8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9FAB924E28C76004473B8 /* AddViewController.swift */; };
 		96952421EABFBB42AE55BCC1 /* Pods_CheckTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA5D7E14CB493237C445FC4 /* Pods_CheckTable.framework */; };
 		ACD91CD024DBF45700DC02BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD91CCF24DBF45700DC02BA /* AppDelegate.swift */; };
 		ACD91CD224DBF45700DC02BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD91CD124DBF45700DC02BA /* SceneDelegate.swift */; };
@@ -27,6 +28,7 @@
 		2CF9FAB324E26D96004473B8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2CF9FAB524E26DBD004473B8 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		2CF9FAB724E26E01004473B8 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		2CF9FAB924E28C76004473B8 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		4B4071E2B631BE10823E138A /* Pods-CheckTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckTable.debug.xcconfig"; path = "Target Support Files/Pods-CheckTable/Pods-CheckTable.debug.xcconfig"; sourceTree = "<group>"; };
 		7787A8CC703D4BFFA131FB1D /* Pods-CheckTable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckTable.release.xcconfig"; path = "Target Support Files/Pods-CheckTable/Pods-CheckTable.release.xcconfig"; sourceTree = "<group>"; };
 		ACD91CCC24DBF45700DC02BA /* CheckTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 				2CF9FAB324E26D96004473B8 /* Post.swift */,
 				2CF9FAB524E26DBD004473B8 /* AppUser.swift */,
 				2CF9FAB724E26E01004473B8 /* AccountViewController.swift */,
+				2CF9FAB924E28C76004473B8 /* AddViewController.swift */,
 			);
 			path = CheckTable;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			files = (
 				2CF9FAB624E26DBD004473B8 /* AppUser.swift in Sources */,
 				ACD91CD624DBF45700DC02BA /* SecondViewController.swift in Sources */,
+				2CF9FABA24E28C76004473B8 /* AddViewController.swift in Sources */,
 				2CF9FAB824E26E01004473B8 /* AccountViewController.swift in Sources */,
 				ACD91CD424DBF45700DC02BA /* FirstViewController.swift in Sources */,
 				ACD91CD024DBF45700DC02BA /* AppDelegate.swift in Sources */,
