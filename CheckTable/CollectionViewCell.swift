@@ -12,7 +12,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var number: UILabel!
     
-    var color = 0
+    var title: String!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
