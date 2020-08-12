@@ -47,7 +47,7 @@ class AccountViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextViewController = segue.destination as! SecondViewController
         let user = sender as! User
-        nextViewController.me = AppUser(data: ["userID": user.uid])
+        //nextViewController.me = AppUser(data: ["userID": user.uid])
     }
 
         
