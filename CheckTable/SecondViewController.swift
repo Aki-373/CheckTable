@@ -11,18 +11,19 @@ import Firebase
 
 class SecondViewController:UIViewController, UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postArray.count
+        return postArray.count //postArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
-        //cell.textLabel?.text = postArray[indexPath.row].content
-        return cell
+            //print(postArray[indexPath.row].content)
+        cell.textLabel?.text = postArray[indexPath.row].content
+            return cell
     }
     
     var me: AppUser!
     var database: Firestore! // 宣言
-    var postArray: Array<AnyObject>! = []
+    var postArray: [Post] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,7 +33,7 @@ class SecondViewController:UIViewController, UITableViewDataSource, UITableViewD
                 for document in snapshot.documents {
                     let data = document.data()
                     let post = Post(data: data)
-                    self.postArray.append(post as AnyObject)
+                    self.postArray.append(post)
                 }
                 self.tableView.reloadData()
             }
