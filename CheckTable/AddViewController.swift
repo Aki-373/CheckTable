@@ -27,7 +27,7 @@ class AddViewController: UIViewController {
     let Array = [Int](1...90)
     override func viewDidLoad() {
            super.viewDidLoad()
-           
+        contentTextView.layer.borderWidth = 0.5
            // ピッカー設定
            pickerView.delegate = self
            pickerView.dataSource = self
