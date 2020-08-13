@@ -60,12 +60,17 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
         book.inputAccessoryView = toolbar
         name = books[0]
         book.text = name
+        
+        guard let fl = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        fl.headerReferenceSize = CGSize(width: self.view.bounds.width, height: 30)
     }
     
     @objc func done() {
         book.endEditing(true)
         book.text = "\(books[pickerView.selectedRow(inComponent: 0)])"
         name = "\(books[pickerView.selectedRow(inComponent: 0)])"
+        let indexPath = IndexPath(item: 0, section: books.firstIndex(of: name)!)
+        self.collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.top, animated: false)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -79,8 +84,10 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
             return numbers[1].count
         }else if section == 2{
             return numbers[2].count
-        }else{
+        }else if section == 3{
             return numbers[3].count
+        }else{
+            return 0
         }
     }
     
@@ -92,6 +99,20 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
         cell.backgroundColor = .lightGray
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeader else {
+            fatalError("Could not find proper header")
+        }
+
+        if kind == UICollectionView.elementKindSectionHeader {
+            header.sectionLabel.text = books[indexPath.section]
+            return header
+        }
+
+        return UICollectionReusableView()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
