@@ -15,17 +15,53 @@ class AddViewController: UIViewController {
     
     var me: AppUser!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    //override func viewDidLoad() {
+        //super.viewDidLoad()
+    //}
 
+    @IBOutlet weak var book_kind: UITextField!
+    
+    @IBOutlet weak var number: UITextField!
+    var pickerView: UIPickerView = UIPickerView()
+    let list: [String] = ["アドバンスプラス", "青チャート", "フォーカスゴールド", "東大25年"]
+    let Array = [Int](1...90)
+    override func viewDidLoad() {
+           super.viewDidLoad()
+           
+           // ピッカー設定
+           pickerView.delegate = self
+           pickerView.dataSource = self
+           pickerView.showsSelectionIndicator = true
+           
+           // 決定バーの生成
+           let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+           let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+           let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+           toolbar.setItems([spacelItem, doneItem], animated: true)
+           
+           // インプットビュー設定
+           book_kind.inputView = pickerView
+           book_kind.inputAccessoryView = toolbar
+        number.inputView=pickerView
+        number.inputAccessoryView=toolbar
+       }
+       
+       // 決定ボタン押下
+       @objc func done() {
+           book_kind.endEditing(true)
+           book_kind.text = "\(list[pickerView.selectedRow(inComponent: 0)])"
+    }
     @IBAction func postContent(_ sender: Any) {
         let content = contentTextView.text!
+        let book = book_kind.text!
+        let quiz_num = number.text!
         let saveDocument = Firestore.firestore().collection("posts").document()
         saveDocument.setData([
             "content": content,
             "postID": saveDocument.documentID,
             //"senderID": user.uid,
+            "book_kind": book,
+            "number": quiz_num,
             "createdAt": FieldValue.serverTimestamp(),
             "updatedAt": FieldValue.serverTimestamp()
         ]) { error in
@@ -59,5 +95,42 @@ class AddViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+extension AddViewController : UIPickerViewDelegate, UIPickerViewDataSource {
+ 
+    // ドラムロールの列数
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    // ドラムロールの行数
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+         if component == 0 {return list.count
+         } else {
+            return Array.count
+         }
+    }
+    
+    // ドラムロールの各タイトル
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0 {return list[row]
+        } else {
+           return String(Array[row])
+        }
+    }
+    
+    
+    // ドラムロール選択時
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch component {
+        case 0:
+            book_kind.text = list[row]
+        case 1:
+            number.text = String(Array[row])
+        default:
+            break
+        }
+    }
+     
+}
 
