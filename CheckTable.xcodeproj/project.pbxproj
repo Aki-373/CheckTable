@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		ACD91CDE24DBF45B00DC02BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD91CDC24DBF45B00DC02BA /* LaunchScreen.storyboard */; };
 		ACD91CE624DBF91A00DC02BA /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD91CE524DBF91A00DC02BA /* ActivityViewController.swift */; };
 		EF3BB74B24E17BA90018D9BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF3BB74A24E17BA90018D9BD /* GoogleService-Info.plist */; };
+		EF6EAA5F24E69E7900C7CA4E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6EAA5E24E69E7900C7CA4E /* Post.swift */; };
+		EF6EAA6124E69EB600C7CA4E /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6EAA6024E69EB600C7CA4E /* AppUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		ACD91CE524DBF91A00DC02BA /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		B3BD2021C24284103EA9650D /* Pods_CheckTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3BB74A24E17BA90018D9BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EF6EAA5E24E69E7900C7CA4E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		EF6EAA6024E69EB600C7CA4E /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		F62D49E28176E4C979A581D2 /* Pods-CheckTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckTable.debug.xcconfig"; path = "Target Support Files/Pods-CheckTable/Pods-CheckTable.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +66,6 @@
 				F62D49E28176E4C979A581D2 /* Pods-CheckTable.debug.xcconfig */,
 				007F7CA7528280099AECC124 /* Pods-CheckTable.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -88,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				ACD91CCF24DBF45700DC02BA /* AppDelegate.swift */,
+				EF6EAA5E24E69E7900C7CA4E /* Post.swift */,
+				EF6EAA6024E69EB600C7CA4E /* AppUser.swift */,
 				ACD91CD124DBF45700DC02BA /* SceneDelegate.swift */,
 				ACD91CD324DBF45700DC02BA /* FirstViewController.swift */,
 				ACD91CE524DBF91A00DC02BA /* ActivityViewController.swift */,
@@ -217,9 +222,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF6EAA6124E69EB600C7CA4E /* AppUser.swift in Sources */,
 				ACD91CD624DBF45700DC02BA /* SecondViewController.swift in Sources */,
 				ACD91CD424DBF45700DC02BA /* FirstViewController.swift in Sources */,
 				ACD91CD024DBF45700DC02BA /* AppDelegate.swift in Sources */,
+				EF6EAA5F24E69E7900C7CA4E /* Post.swift in Sources */,
 				ACD91CE624DBF91A00DC02BA /* ActivityViewController.swift in Sources */,
 				ACD91CD224DBF45700DC02BA /* SceneDelegate.swift in Sources */,
 			);

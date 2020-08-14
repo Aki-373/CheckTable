@@ -6,6 +6,7 @@ target 'CheckTable' do
   use_frameworks!
 
   # Pods for CheckTable
-  pod 'Firebase/Analytics'
-
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
 end
