@@ -19,3 +19,4 @@ struct AppUser {
         userName = data["userName"] as! String
     }
 }
+
