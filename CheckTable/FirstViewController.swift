@@ -95,7 +95,7 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)as! CollectionViewCell// 表示するセルを登録(先程命名した"Cell")
         
         cell.number.text = numbers[indexPath.section][indexPath.item]
-        cell.backgroundColor = .lightGray
+        cell.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
         
         return cell
     }
