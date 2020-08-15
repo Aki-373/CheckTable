@@ -13,20 +13,7 @@ import FirebaseFirestore
 class AnswerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var key:[Int]!
-    //var problemNumber = key[1]
-    //var bookIndex = self.key[0]
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postArray.count //postArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell")!
-        cell.textLabel?.text = postArray[indexPath.row].content
-        cell.detailTextLabel?.text =  postArray[indexPath.row].book_kind + postArray[indexPath.row].number
-            return cell
-    }
-    
+    let list: [String] = ["アドバンスプラス", "青チャート", "フォーカスゴールド", "東大25年"]
     var database: Firestore! // 宣言
     var postArray: [Post] = []
     
@@ -45,6 +32,32 @@ class AnswerViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var count = 0
+        let kind = key[0]
+        let numberOfProblem = key[1] + 1
+        for i in 0..<postArray.count{
+            if(postArray[i].book_kind==list[kind] && postArray[i].number==String(numberOfProblem)){
+                count += 1
+            }
+        }
+        return count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let kind = key[0]
+        let numberOfProblem = key[1] + 1
+        var selected:[Int] = []
+        for i in 0..<postArray.count{
+            if(postArray[i].book_kind==list[kind] && postArray[i].number==String(numberOfProblem)){
+                selected.append(i)
+            }
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell")!
+            cell.textLabel?.text = postArray[selected[indexPath.row]].content
+        cell.detailTextLabel?.text =  postArray[selected[indexPath.row]].book_kind + postArray[indexPath.row].number
+        return cell
+    }
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {

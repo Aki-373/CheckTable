@@ -14,7 +14,7 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
     @IBOutlet weak var book: UITextField!
     var pickerView: UIPickerView = UIPickerView()
     
-    let books : [String] = ["スタンダード","メジアン","アドバンスプラス","青チャート"]
+    let books : [String] = ["アドバンスプラス", "青チャート", "フォーカスゴールド", "東大25年"]
     let bookskey = "book_title"
     var name: String!
     
@@ -147,7 +147,7 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAnswer" {
             let nextVC = segue.destination as! AnswerViewController
-            //nextVC.key = sender as! [Int?]
+            nextVC.key = sender as? [Int]
         }
     }
     

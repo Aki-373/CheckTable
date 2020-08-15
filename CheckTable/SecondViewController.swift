@@ -17,7 +17,6 @@ class SecondViewController:UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
-            //print(postArray[indexPath.row].content)
         cell.textLabel?.text = postArray[indexPath.row].content
         cell.detailTextLabel?.text =  postArray[indexPath.row].book_kind + postArray[indexPath.row].number
             return cell
