@@ -15,11 +15,17 @@ class SecondViewController:UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
+        tableView.rowHeight = 400
             //print(postArray[indexPath.row].content)
-        cell.textLabel?.text = postArray[indexPath.row].content
-        cell.detailTextLabel?.text =  postArray[indexPath.row].book_kind + postArray[indexPath.row].number
+        let Context = cell.viewWithTag(1) as! UILabel
+        let Where = cell.viewWithTag(2) as! UILabel
+        let answer = cell.viewWithTag(3) as! UIImageView
+        let imageFileUrl = postArray[indexPath.row].url
+        Context.text = postArray[indexPath.row].content
+        Where.text =  postArray[indexPath.row].book_kind + " " + postArray[indexPath.row].number + "問"
             return cell
+        answer.image = UIImage(named: imageFileUrl)
     }
     
     var me: AppUser!
