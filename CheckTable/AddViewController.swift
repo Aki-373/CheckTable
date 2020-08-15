@@ -83,25 +83,6 @@ class AddViewController: UIViewController {
         }
     }
     
-    
-    
-    fileprivate func saveToFireStore(){
-        var data: [String : Any] = [:]
-        upload(){ url in
-            guard let url = url else {return }
-            data["image"] = url
-            Firestore.firestore().collection("images").document().setData(data){ error in
-                if error != nil {
-                    print("error: \(error?.localizedDescription)")
-                }
-                print("image saved!")
-            }
-        }
-        
-    }
-    
-    
-    
     @IBAction func postContent(_ sender: Any) {
         var data1: Dictionary<String, Any>! = [:]
         let content = contentTextView.text!
@@ -142,15 +123,6 @@ class AddViewController: UIViewController {
     
 }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 extension AddViewController : UIPickerViewDelegate, UIPickerViewDataSource {
  
     // ドラムロールの列数
