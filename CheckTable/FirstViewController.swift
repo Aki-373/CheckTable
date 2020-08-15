@@ -138,9 +138,17 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
     }
     
     @objc func onLongPressAction(_ sender: UILongPressGestureRecognizer) {
-        //let point: CGPoint = sender.location(in: self.collectionView)
-        //let indexPath = self.collectionView.indexPathForItem(at: point)
-        performSegue(withIdentifier: "toAnswer",sender: nil)
+        let point: CGPoint = sender.location(in: self.collectionView)
+        let indexPath = self.collectionView.indexPathForItem(at: point)
+        let problemKey:[Int?] = [indexPath?.section, indexPath?.item]
+        self.performSegue(withIdentifier: "toAnswer",sender: problemKey)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAnswer" {
+            let nextVC = segue.destination as! AnswerViewController
+            //nextVC.key = sender as! [Int?]
+        }
     }
     
 }

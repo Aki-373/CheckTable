@@ -7,15 +7,52 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
-class AnswerViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class AnswerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var key:[Int]!
+    //var problemNumber = key[1]
+    //var bookIndex = self.key[0]
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return postArray.count //postArray.count
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell")!
+        cell.textLabel?.text = postArray[indexPath.row].content
+        cell.detailTextLabel?.text =  postArray[indexPath.row].book_kind + postArray[indexPath.row].number
+            return cell
+    }
+    
+    var database: Firestore! // 宣言
+    var postArray: [Post] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        database.collection("posts").getDocuments { (snapshot, error) in
+            if error == nil, let snapshot = snapshot {
+                self.postArray = []
+                for document in snapshot.documents {
+                    let data = document.data()
+                    let post = Post(data: data)
+                    self.postArray.append(post)
+                }
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+
+    @IBOutlet weak var tableView: UITableView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        database = Firestore.firestore()
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
 
     /*
     // MARK: - Navigation
