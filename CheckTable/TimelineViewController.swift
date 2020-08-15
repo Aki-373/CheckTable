@@ -10,11 +10,13 @@
 import UIKit
 import Firebase
 import FirebaseCore
+
 // デリゲート・データソースを記述。
 class TimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var me: AppUser!
     var database: Firestore! // 宣言
+    var postArray: [Post] = []
     
     @IBOutlet var tableView: UITableView! // 追加
 
@@ -35,8 +37,6 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
-
-//////////
 
     // 投稿追加画面に遷移するボタンを押したときの動作を記述。
     @IBAction func toAddViewController() {
@@ -63,4 +63,3 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
 }
-
