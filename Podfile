@@ -15,5 +15,7 @@ pod 'Firebase/Functions'
 pod 'Firebase/InAppMessaging'
 pod 'Firebase/InAppMessagingDisplay'
 pod 'Firebase/Storage'
+pod 'FirebaseUI/Storage'
+pod 'SDWebImage', '~> 5.0'
  
 end

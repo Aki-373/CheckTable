@@ -8,12 +8,22 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 class SecondViewController:UIViewController, UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count //postArray.count
     }
-    
+    func getImageByUrl(url: String) -> UIImage{
+        let url = URL(string: url)
+        do {
+            let data = try Data(contentsOf: url!)
+            return UIImage(data: data)!
+        } catch let err {
+            print("Error : \(err.localizedDescription)")
+        }
+        return UIImage()
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
         tableView.rowHeight = 400
@@ -21,11 +31,14 @@ class SecondViewController:UIViewController, UITableViewDataSource, UITableViewD
         let Context = cell.viewWithTag(1) as! UILabel
         let Where = cell.viewWithTag(2) as! UILabel
         let answer = cell.viewWithTag(3) as! UIImageView
+        //let imageFileUrl = "https://www.pakutaso.com/shared/img/thumb/dashPAKU0522_TP_V.jpg"
+        
         let imageFileUrl = postArray[indexPath.row].url
         Context.text = postArray[indexPath.row].content
         Where.text =  postArray[indexPath.row].book_kind + " " + postArray[indexPath.row].number + "問"
-            return cell
-        answer.image = UIImage(named: imageFileUrl)
+        let Image:UIImage = getImageByUrl(url: imageFileUrl)
+        answer.image = Image
+        return cell
     }
     
     var me: AppUser!
@@ -63,5 +76,18 @@ class SecondViewController:UIViewController, UITableViewDataSource, UITableViewD
     }
     @IBAction func toAddViewController(_ sender: Any) {
         performSegue(withIdentifier: "Add", sender: me)
+    }
+}
+extension UIImage {
+    public convenience init(url: String) {
+        let url = URL(string: url)
+        do {
+            let data = try Data(contentsOf: url!)
+            self.init(data: data)!
+            return
+        } catch let err {
+            print("Error : \(err.localizedDescription)")
+        }
+        self.init()
     }
 }
