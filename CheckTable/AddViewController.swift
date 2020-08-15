@@ -17,10 +17,6 @@ class AddViewController: UIViewController {
     
     var me: AppUser!
 
-    //override func viewDidLoad() {
-        //super.viewDidLoad()
-    //}
-
     @IBOutlet weak var book_kind: UITextField!
     
     @IBOutlet weak var number: UITextField!
@@ -31,6 +27,7 @@ class AddViewController: UIViewController {
            super.viewDidLoad()
            imagePicker.delegate = self
         contentTextView.layer.borderWidth = 0.5
+        
            // ピッカー設定
            pickerView.delegate = self
            pickerView.dataSource = self
@@ -62,31 +59,50 @@ class AddViewController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    
-    @IBAction func startUpload(_ sender: Any) {
-        upload()
-    }
-    fileprivate func upload() {
-    let date = NSDate()
-    let currentTimeStampInSecond = UInt64(floor(date.timeIntervalSince1970 * 1000))
+    fileprivate func upload(completed: @escaping(_ url: String?) -> Void){
+        let date = NSDate()
+        let currentTimeStampInSecond = UInt64(floor(date.timeIntervalSince1970 * 1000))
         let storageRef = Storage.storage().reference().child("images").child("\(currentTimeStampInSecond).jpg")
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
-            if let uploadData = self.imageView.image?.jpegData(compressionQuality: 0.9) {
-                storageRef.putData(uploadData, metadata: metaData) { (metadata , error) in
+        if let uploadData = self.imageView.image?.jpegData(compressionQuality: 0.9) {
+            storageRef.putData(uploadData, metadata: metaData) { (metadata , error) in
+                if error != nil {
+                    completed(nil)
+                    print("error: \(error?.localizedDescription)")
+                }
+                storageRef.downloadURL(completion: { (url, error) in
                     if error != nil {
+                        completed(nil)
                         print("error: \(error?.localizedDescription)")
                     }
-                    storageRef.downloadURL(completion: { (url, error) in
-                        if error != nil {
-                            print("error: \(error?.localizedDescription)")
-                        }
-                        print("url: \(url?.absoluteString)")
-                    })
-                }
+                    completed(url?.absoluteString)
+                })
             }
         }
+    }
+    
+    
+    
+    /*fileprivate func saveToFireStore(){
+        var data: [String : Any] = [:]
+        upload(){ url in
+            guard let url = url else {return }
+            data["image"] = url
+            /*Firestore.firestore().collection("images").document().setData(data){ error in
+                if error != nil {
+                    print("error: \(error?.localizedDescription)")
+                }
+                print("image saved!")
+            }*/
+        }
+        //print(data)
+    }*/
+    
+    
+    
     @IBAction func postContent(_ sender: Any) {
+        
         let content = contentTextView.text!
         let book = book_kind.text!
         let quiz_num = number.text!
@@ -96,6 +112,7 @@ class AddViewController: UIViewController {
             "postID": saveDocument.documentID,
             //"senderID": user.uid,
             "book_kind": book,
+            //"url": upload()["Image"] as! String,
             "number": quiz_num,
             "createdAt": FieldValue.serverTimestamp(),
             "updatedAt": FieldValue.serverTimestamp()

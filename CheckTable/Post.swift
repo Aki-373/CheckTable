@@ -17,12 +17,14 @@ struct Post {
     let updatedAt: Timestamp
     let book_kind: String
     let number: String
+    let url: String
 
     init(data: [String: Any]) {
         content = data["content"] as! String
         postID = data["postID"] as! String
         //senderID = data["senderID"] as! String
         book_kind = data["book_kind"] as! String
+        url = data["url"] as! String
         number = data["number"] as! String
         createdAt = data["createdAt"] as! Timestamp
         updatedAt = data["updatedAt"] as! Timestamp
