@@ -197,11 +197,36 @@
                     <connections>
                         <outlet property="tableView" destination="h3D-iQ-qae" id="xT9-eG-Czq"/>
                         <segue destination="9t1-Nz-5hI" kind="presentation" identifier="Add" id="5s2-Mk-pxy"/>
+                        <segue destination="8CB-WU-xJB" kind="presentation" identifier="toSubViewController" id="FHs-Nn-o6l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hi-IE-6Sz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1418.840579710145" y="370.98214285714283"/>
+        </scene>
+        <!--Sub View Controller-->
+        <scene sceneID="iZH-aU-HNb">
+            <objects>
+                <viewController id="8CB-WU-xJB" customClass="SubViewController" customModule="CheckTable" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="olk-9K-fIF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1q-dw-VsW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="dHz-ml-VsM"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="R1q-dw-VsW" id="vXi-DT-9Hk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wf3-QR-ZXL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2100" y="-209.59821428571428"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="4oD-bQ-tXy">

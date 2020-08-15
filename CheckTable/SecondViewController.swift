@@ -11,6 +11,17 @@ import Firebase
 import SDWebImage
 
 class SecondViewController:UIViewController, UITableViewDataSource, UITableViewDelegate{
+    var selectedImage : UIImage?
+    
+    func tableView(_ table: UITableView,didSelectRowAt indexPath: IndexPath) {
+        // [indexPath.row] から画像名を探し、UImage を設定
+        selectedImage = getImageByUrl(url: postArray[indexPath.row].url)
+        
+            // SubViewController へ遷移するために Segue を呼び出す
+            performSegue(withIdentifier: "toSubViewController",sender: nil)
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count //postArray.count
     }
@@ -31,7 +42,6 @@ class SecondViewController:UIViewController, UITableViewDataSource, UITableViewD
         let Context = cell.viewWithTag(1) as! UILabel
         let Where = cell.viewWithTag(2) as! UILabel
         let answer = cell.viewWithTag(3) as! UIImageView
-        //let imageFileUrl = "https://www.pakutaso.com/shared/img/thumb/dashPAKU0522_TP_V.jpg"
         
         let imageFileUrl = postArray[indexPath.row].url
         Context.text = postArray[indexPath.row].content
@@ -70,9 +80,15 @@ class SecondViewController:UIViewController, UITableViewDataSource, UITableViewD
     }
         // 投稿追加画面に遷移するボタンを押したときの動作を記述。
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let destination = segue.destination as! AddViewController // segue.destinationで遷移先のViewControllerが取得可能。
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+    //let destination = segue.destination as! AddViewController // segue.destinationで遷移先のViewControllerが取得可能。
         //destination.me = sender as! AppUser
+        if (segue.identifier == "toSubViewController") {
+                   let subVC: SubViewController = (segue.destination as? SubViewController)!
+        
+                   // SubViewController のselectedImgに選択された画像を設定する
+                   subVC.selectedImg = selectedImage
+               }
     }
     @IBAction func toAddViewController(_ sender: Any) {
         performSegue(withIdentifier: "Add", sender: me)
