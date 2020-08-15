@@ -84,25 +84,25 @@ class AddViewController: UIViewController {
     
     
     
-    /*fileprivate func saveToFireStore(){
+    fileprivate func saveToFireStore(){
         var data: [String : Any] = [:]
         upload(){ url in
             guard let url = url else {return }
             data["image"] = url
-            /*Firestore.firestore().collection("images").document().setData(data){ error in
+            Firestore.firestore().collection("images").document().setData(data){ error in
                 if error != nil {
                     print("error: \(error?.localizedDescription)")
                 }
                 print("image saved!")
-            }*/
+            }
         }
-        //print(data)
-    }*/
+        
+    }
     
     
     
     @IBAction func postContent(_ sender: Any) {
-        
+        saveToFireStore()
         let content = contentTextView.text!
         let book = book_kind.text!
         let quiz_num = number.text!
