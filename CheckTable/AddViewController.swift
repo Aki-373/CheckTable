@@ -59,7 +59,8 @@ class AddViewController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    fileprivate func upload(completed: @escaping(_ url: String?) -> Void){
+    //fileprivate
+    open func upload(completed: @escaping(_ url: String?) -> Void){
         let date = NSDate()
         let currentTimeStampInSecond = UInt64(floor(date.timeIntervalSince1970 * 1000))
         let storageRef = Storage.storage().reference().child("images").child("\(currentTimeStampInSecond).jpg")
@@ -102,25 +103,28 @@ class AddViewController: UIViewController {
     
     
     @IBAction func postContent(_ sender: Any) {
-        saveToFireStore()
+        var data1: Dictionary<String, Any>! = [:]
         let content = contentTextView.text!
         let book = book_kind.text!
         let quiz_num = number.text!
         let saveDocument = Firestore.firestore().collection("posts").document()
-        saveDocument.setData([
-            "content": content,
-            "postID": saveDocument.documentID,
-            //"senderID": user.uid,
-            "book_kind": book,
-            //"url": upload()["Image"] as! String,
-            "number": quiz_num,
-            "createdAt": FieldValue.serverTimestamp(),
-            "updatedAt": FieldValue.serverTimestamp()
-        ]) { error in
+        upload(){ url in
+            guard let url = url else {return }
+            data1["URL"] = url
+            data1["content"] = content
+            data1["postID"] = saveDocument.documentID
+            data1["book_kind"] = book
+            data1["number"] = quiz_num
+            data1["createdAt"] = FieldValue.serverTimestamp()
+            data1["updatedAt"] = FieldValue.serverTimestamp()
+            saveDocument.setData(data1!)
+        {error in
             if error == nil {
                 self.dismiss(animated: true, completion: nil)
             }
         }
+        
+    }
     }
     func setupTextView() {
         let toolBar = UIToolbar() // キーボードの上に置くツールバーの生成

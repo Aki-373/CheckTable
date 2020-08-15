@@ -12,7 +12,7 @@ import Firebase
 struct Post {
     let content: String
     let postID: String
-    //let senderID: String!="a"
+    let senderID: String!="a"
     let createdAt: Timestamp
     let updatedAt: Timestamp
     let book_kind: String
