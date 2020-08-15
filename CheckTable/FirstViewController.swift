@@ -23,7 +23,7 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        for i in 1 ..< 10 {
+        for i in 1 ..< 31 {
             numbers[0].append(String(i))
         }
         for i in 1 ..< 101 {
@@ -123,16 +123,16 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
           
         switch cell.backgroundColor {
-            case UIColor.green:
-                cell.backgroundColor = .lightGray
-            case UIColor.lightGray:
-                cell.backgroundColor = .red
-            case UIColor.red:
-                cell.backgroundColor = .blue
-            case UIColor.blue:
-                cell.backgroundColor = .green
+            case UIColor(red: 0.55, green: 1.0, blue: 0.0, alpha: 0.7):
+                cell.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
+            case UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5):
+                cell.backgroundColor = UIColor(red: 1.0, green: 0.25, blue: 0.7, alpha: 0.7)
+            case UIColor(red: 1.0, green: 0.25, blue: 0.7, alpha: 0.7):
+                cell.backgroundColor = UIColor(red: 0.3, green: 0.8, blue: 0.9, alpha: 0.7)
+            case UIColor(red: 0.3, green: 0.8, blue: 0.9, alpha: 0.7):
+                cell.backgroundColor = UIColor(red: 0.55, green: 1.0, blue: 0.0, alpha: 0.7)
             default:
-                cell.backgroundColor = .lightGray
+                cell.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
         }
           
     }
