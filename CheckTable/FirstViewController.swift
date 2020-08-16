@@ -10,6 +10,7 @@ import UIKit
 class FirstViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     var numbers: [[String]] = [[],[],[],[]]
+    var colors: [[Int]] = [[],[],[],[]]
     
     @IBOutlet weak var book: UITextField!
     var pickerView: UIPickerView = UIPickerView()
@@ -25,15 +26,19 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
         // Do any additional setup after loading the view.
         for i in 1 ..< 31 {
             numbers[0].append(String(i))
+            colors[0].append(0)
         }
         for i in 1 ..< 101 {
             numbers[1].append(String(i))
+            colors[1].append(0)
         }
         for i in 1 ..< 51 {
             numbers[2].append(String(i))
+            colors[2].append(0)
         }
         for i in 1 ..< 151 {
             numbers[3].append(String(i))
+            colors[3].append(0)
         }
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
@@ -93,10 +98,26 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)as! CollectionViewCell// 表示するセルを登録(先程命名した"Cell")
-        
         cell.number.text = numbers[indexPath.section][indexPath.item]
-        cell.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
-        
+        let defaults = UserDefaults.standard
+        let loadedMemoList = defaults.object(forKey: "COLOR_LIST") as? [[Int]]
+        if (loadedMemoList as? [[Int]] != nil) {
+            colors = loadedMemoList!
+            switch loadedMemoList?[indexPath.section][indexPath.item] {
+                case 0:
+                    cell.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
+                case 1:
+                    cell.backgroundColor = UIColor(red: 1.0, green: 0.25, blue: 0.7, alpha: 0.7)
+                case 2:
+                    cell.backgroundColor = UIColor(red: 0.3, green: 0.8, blue: 0.9, alpha: 0.7)
+                case 3:
+                    cell.backgroundColor = UIColor(red: 0.55, green: 1.0, blue: 0.0, alpha: 0.7)
+                default:
+                    cell.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
+            }
+        }else{
+            cell.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
+        }
         return cell
     }
     
@@ -134,7 +155,10 @@ class FirstViewController: UIViewController,UICollectionViewDataSource,UICollect
             default:
                 cell.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
         }
-          
+        
+        colors[indexPath.section][indexPath.item] += 1
+        let defaults = UserDefaults.standard
+        defaults.set(colors, forKey: "COLOR_LIST")
     }
     
     @objc func onLongPressAction(_ sender: UILongPressGestureRecognizer) {
