@@ -45,7 +45,7 @@ class SecondViewController:UIViewController, UITableViewDataSource, UITableViewD
         
         let imageFileUrl = postArray[indexPath.row].url
         Context.text = postArray[indexPath.row].content
-        Where.text =  postArray[indexPath.row].book_kind + " " + postArray[indexPath.row].number + "問"
+        Where.text =  postArray[indexPath.row].book_kind + " 第" + postArray[indexPath.row].number + "問"
         let Image:UIImage = getImageByUrl(url: imageFileUrl)
         answer.image = Image
         return cell

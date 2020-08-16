@@ -83,7 +83,7 @@ class AnswerViewController: UIViewController, UITableViewDataSource, UITableView
             
             let imageFileUrl = postArray[selected[indexPath.row]].url
             Context.text = postArray[selected[indexPath.row]].content
-            Where.text =  postArray[selected[indexPath.row]].book_kind + " " + postArray[selected[indexPath.row]].number + "問"
+            Where.text =  postArray[selected[indexPath.row]].book_kind + " 第" + postArray[selected[indexPath.row]].number + "問"
             let Image:UIImage = getImageByUrl(url: imageFileUrl)
             answer.image = Image
             return cell
