@@ -290,11 +290,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dj2-o1-5q6">
-                                <rect key="frame" x="172" y="324" width="77" height="30"/>
+                                <rect key="frame" x="232" y="331" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="画像を選択"/>
                                 <connections>
                                     <action selector="presentImagePicker:" destination="9t1-Nz-5hI" eventType="touchUpInside" id="PWt-E9-VtK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0B-fi-vIC">
+                                <rect key="frame" x="106" y="331" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="写真を撮る"/>
+                                <connections>
+                                    <action selector="camera:" destination="9t1-Nz-5hI" eventType="touchUpInside" id="Wrw-eO-e4j"/>
                                 </connections>
                             </button>
                         </subviews>

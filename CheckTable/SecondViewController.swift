@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import SDWebImage
 
 class SecondViewController:UIViewController, UITableViewDataSource, UITableViewDelegate{
     var selectedImage : UIImage?

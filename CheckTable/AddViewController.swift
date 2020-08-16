@@ -20,6 +20,16 @@ class AddViewController: UIViewController {
     @IBOutlet weak var book_kind: UITextField!
     
     @IBOutlet weak var number: UITextField!
+    
+    @IBAction func camera(_ sender: Any) {
+        let pickerController = UIImagePickerController()
+
+        //ソースタイプを指定(cameraの場合はplistでカメラ使用を許可すること)
+        pickerController.sourceType = .camera
+
+        //カメラを表示
+        present(pickerController, animated: true, completion: nil)
+    }
     var pickerView: UIPickerView = UIPickerView()
     let list: [String] = ["アドバンスプラス", "青チャート", "フォーカスゴールド", "東大25年"]
     let Array = [Int](1...90)
