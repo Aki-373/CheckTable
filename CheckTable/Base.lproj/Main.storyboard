@@ -122,6 +122,22 @@
                                     <action selector="registerAccount:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Pqi-Eo-0rP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RwO-c8-Cod">
+                                <rect key="frame" x="169" y="207" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ログアウト"/>
+                                <connections>
+                                    <action selector="logout:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="PgM-c5-f6t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KK1-ak-NEE">
+                                <rect key="frame" x="45" y="207" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="サインイン"/>
+                                <connections>
+                                    <action selector="didTapSignInButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="KP5-zH-KIv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>

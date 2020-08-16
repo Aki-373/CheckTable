@@ -19,6 +19,23 @@ class AccountViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
 
+    @IBAction func logout(_ sender: Any) {
+        try? Auth.auth().signOut()
+        /*let accountViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! AccountViewController
+        present(accountViewController, animated: true, completion: nil)*/
+    }
+    
+    @IBAction func didTapSignInButton(_ sender: Any) {
+        let email = emailTextField.text ?? ""
+        let Password = passwordTextField.text ?? ""
+        
+        Auth.auth().signIn(withEmail: email, password: Password) { [weak self] result, error in
+            guard let self = self else { return }
+            if let user = result?.user {
+                self.performSegue(withIdentifier: "TimeLine", sender: self.auth.currentUser!)
+            }
+             }
+    }
     override func viewDidLoad() {
             super.viewDidLoad()
             auth = Auth.auth()
