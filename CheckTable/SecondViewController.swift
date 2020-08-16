@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 class SecondViewController:UIViewController, UITableViewDataSource, UITableViewDelegate{
     var selectedImage : UIImage?

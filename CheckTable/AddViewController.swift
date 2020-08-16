@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
+import FirebaseStorage
 
 class AddViewController: UIViewController {
 
