@@ -14,7 +14,7 @@ import FirebaseFirestore
 struct Post {
     let content: String
     let postID: String
-    let senderID: String!="a"
+    let senderID: String
     let createdAt: Timestamp
     let updatedAt: Timestamp
     let book_kind: String
@@ -24,7 +24,7 @@ struct Post {
     init(data: [String: Any]) {
         content = data["content"] as! String
         postID = data["postID"] as! String
-        //senderID = data["senderID"] as! String
+        senderID = data["senderID"] as! String
         book_kind = data["book_kind"] as! String
         url = data["URL"] as! String
         number = data["number"] as! String

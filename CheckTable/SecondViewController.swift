@@ -42,12 +42,18 @@ class SecondViewController:UIViewController, UITableViewDataSource, UITableViewD
         let Context = cell.viewWithTag(1) as! UILabel
         let Where = cell.viewWithTag(2) as! UILabel
         let answer = cell.viewWithTag(3) as! UIImageView
-        
+        let name = cell.viewWithTag(4) as! UILabel
         let imageFileUrl = postArray[indexPath.row].url
         Context.text = postArray[indexPath.row].content
         Where.text =  postArray[indexPath.row].book_kind + " 第" + postArray[indexPath.row].number + "問"
         let Image:UIImage = getImageByUrl(url: imageFileUrl)
         answer.image = Image
+        database.collection("users").document(postArray[indexPath.row].senderID).getDocument { (snapshot, error) in
+            if error == nil, let snapshot = snapshot, let data = snapshot.data() {
+                let appUser = AppUser(data: data)
+                name.text = appUser.userName // 今回は、ユーザー名をdetailTextLabelに表示。
+            }
+        }
         return cell
     }
     
@@ -68,6 +74,14 @@ class SecondViewController:UIViewController, UITableViewDataSource, UITableViewD
                 self.tableView.reloadData()
             }
         }
+        database.collection("users").document(me.userID).setData([
+        "userID": me.userID
+        ], merge: true)
+        database.collection("users").document(me.userID).getDocument { (snapshot, error) in
+            if error == nil, let snapshot = snapshot, let data = snapshot.data() {
+                self.me = AppUser(data: data)
+            }
+        }
     }
     
 
@@ -81,8 +95,8 @@ class SecondViewController:UIViewController, UITableViewDataSource, UITableViewD
         // 投稿追加画面に遷移するボタンを押したときの動作を記述。
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-    //let destination = segue.destination as! AddViewController // segue.destinationで遷移先のViewControllerが取得可能。
-        //destination.me = sender as! AppUser
+    let destination = segue.destination as! AddViewController // segue.destinationで遷移先のViewControllerが取得可能。
+        destination.me = sender as! AppUser
         if (segue.identifier == "toSubViewController") {
                    let subVC: SubViewController = (segue.destination as? SubViewController)!
         

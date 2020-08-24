@@ -105,6 +105,7 @@ class AddViewController: UIViewController {
             guard let url = url else {return }
             data1["URL"] = url
             data1["content"] = content
+            data1["senderID"] = self.me.userID
             data1["postID"] = saveDocument.documentID
             data1["book_kind"] = book
             data1["number"] = quiz_num
