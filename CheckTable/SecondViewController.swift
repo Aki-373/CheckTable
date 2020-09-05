@@ -43,6 +43,9 @@ class SecondViewController:UIViewController, UITableViewDataSource, UITableViewD
         let Where = cell.viewWithTag(2) as! UILabel
         let answer = cell.viewWithTag(3) as! UIImageView
         
+        let button = cell.viewWithTag(1) as! UIButton
+        button.tag = indexPath.row
+        
         let imageFileUrl = postArray[indexPath.row].url
         Context.text = postArray[indexPath.row].content
         Where.text =  postArray[indexPath.row].book_kind + " 第" + postArray[indexPath.row].number + "問"
@@ -68,6 +71,10 @@ class SecondViewController:UIViewController, UITableViewDataSource, UITableViewD
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    @IBAction func like(_ sender: UIButton) {
+       let postGC = database.collection("Post").document("")
     }
     
 

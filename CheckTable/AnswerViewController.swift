@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class AnswerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
     var key:[Int]!
     let list: [String] = ["アドバンスプラス", "青チャート", "フォーカスゴールド", "東大25年"]
     var database: Firestore! // 宣言
@@ -62,6 +63,10 @@ class AnswerViewController: UIViewController, UITableViewDataSource, UITableView
             print("Error : \(err.localizedDescription)")
         }
         return UIImage()
+    }
+    
+    @IBAction func like(_ sender: Any) {
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

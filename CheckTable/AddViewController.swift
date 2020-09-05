@@ -110,6 +110,7 @@ class AddViewController: UIViewController {
             data1["number"] = quiz_num
             data1["createdAt"] = FieldValue.serverTimestamp()
             data1["updatedAt"] = FieldValue.serverTimestamp()
+            data1["goodCounts"] = 0
             saveDocument.setData(data1!)
         {error in
             if error == nil {

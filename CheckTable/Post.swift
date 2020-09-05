@@ -20,6 +20,8 @@ struct Post {
     let book_kind: String
     let number: String
     let url: String
+    let goodCounts: Int
+    //let likedUsers: AppUser
 
     init(data: [String: Any]) {
         content = data["content"] as! String
@@ -30,5 +32,6 @@ struct Post {
         number = data["number"] as! String
         createdAt = data["createdAt"] as! Timestamp
         updatedAt = data["updatedAt"] as! Timestamp
+        goodCounts = data["goodCounts"] as! Int
     }
 }

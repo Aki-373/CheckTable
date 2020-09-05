@@ -146,6 +146,14 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MIP-zW-3m8">
                                                     <rect key="frame" x="0.0" y="66" width="414" height="324"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whu-vJ-lIQ">
+                                                    <rect key="frame" x="323" y="334" width="46" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="like:" destination="jXz-3I-qjv" eventType="touchUpInside" id="eQ0-SF-cR6"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="MIP-zW-3m8" secondAttribute="bottom" constant="10" id="536-mS-kKf"/>
@@ -320,6 +328,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpA-x1-d3M">
+                                                    <rect key="frame" x="348" y="10" width="46" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="いいね"/>
+                                                    <connections>
+                                                        <action selector="like:" destination="Hgs-Ck-xpW" eventType="touchUpInside" id="bGH-vR-ZJT"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="xXR-6N-wtP" firstAttribute="top" secondItem="8Os-kM-AEb" secondAttribute="bottom" constant="5" id="9rV-BF-UUh"/>
@@ -414,7 +430,7 @@
                                 <rect key="frame" x="191.5" y="371" width="31" height="52"/>
                                 <state key="normal" title="投稿"/>
                                 <connections>
-                                    <action selector="postContent:" destination="9t1-Nz-5hI" eventType="touchUpInside" id="XxC-dK-xYZ"/>
+                                    <action selector="postContent:" destination="9t1-Nz-5hI" eventType="touchUpInside" id="XSY-ef-rqc"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k4L-37-w4w">
@@ -479,7 +495,6 @@
                             <constraint firstItem="k4L-37-w4w" firstAttribute="leading" secondItem="WmF-6A-7fM" secondAttribute="leading" constant="60" id="Luw-fr-rAs"/>
                             <constraint firstItem="Rmg-Bm-uaN" firstAttribute="leading" secondItem="WmF-6A-7fM" secondAttribute="leading" constant="100" id="N1S-Qn-PL2"/>
                             <constraint firstItem="WmF-6A-7fM" firstAttribute="trailing" secondItem="dj2-o1-5q6" secondAttribute="trailing" constant="100" id="PHl-p4-wY1"/>
-                            <constraint firstItem="Ifu-7r-hEC" firstAttribute="top" secondItem="dj2-o1-5q6" secondAttribute="bottom" constant="10" id="PcC-SM-VrE"/>
                             <constraint firstItem="WmF-6A-7fM" firstAttribute="trailing" secondItem="mnG-nW-bYr" secondAttribute="trailing" constant="75" id="QwM-EY-34J"/>
                             <constraint firstItem="mnG-nW-bYr" firstAttribute="top" secondItem="evM-hg-Vqm" secondAttribute="bottom" constant="100" id="Uka-Fe-qyC"/>
                             <constraint firstItem="CuV-wN-2FQ" firstAttribute="top" secondItem="evM-hg-Vqm" secondAttribute="bottom" constant="100" id="euv-TC-hut"/>
@@ -527,7 +542,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FHs-Nn-o6l"/>
+        <segue reference="BWE-R1-hxK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bell" catalog="system" width="128" height="124"/>
